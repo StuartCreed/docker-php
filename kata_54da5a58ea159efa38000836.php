@@ -2,15 +2,11 @@
 
 // https://www.codewars.com/kata/54da5a58ea159efa38000836/train/php
 function findIt(array $seq): int {
-    // Remove all duplicates in the array
-    $numbers = array_unique($seq);
-    // Iterate over the numbers
-    foreach($numbers as $number) {
-        $occurrences = array_filter($seq, fn($n) => $n === $number);
-        // For each number find how many occurrences are in $seq
-        $occurrencesCount = count($occurrences);
-        // If the number of occurrences is odd then return that number
-        if ($occurrencesCount % 2) return $number;
+    $numCounts = array_count_values($seq);
+    foreach($numCounts as $num => $numCnt) {
+        if ($numCnt % 2) {
+            return $num;
+        }
     }
 }
 
