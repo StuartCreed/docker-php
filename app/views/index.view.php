@@ -1,13 +1,22 @@
 <?php
 
-//echo <<< END
-//<html>
-//    <h1>Katas</h1>
-//    <form name="katas-form" action="./index" method="post">
-//        <input name="katas-search">
-//        <button type="submit">Search</button>
-//    </form>
-//</html>
-//END;
+echo "<div><b>Katas</b></div>";
+echo "<div id='katas'></div>";
 
-getKatas();
+echo <<< END
+<script>
+    const data = { username: 'example'};
+    fetch('http://localhost:8000/search', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.text())
+    .then(data => {
+      console.log('Success:', data);
+      document.getElementById('katas').innerText = data
+    })
+</script>
+END;

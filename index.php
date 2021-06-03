@@ -1,4 +1,1 @@
-<?php
-
-require 'core/helpers.php';
-require 'app/routes/routes.php';
+<?php require_once 'bootstrap.php'?>
