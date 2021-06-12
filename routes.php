@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         case '/search':
             require_once 'app/views/index.view.php';
             break;
+            //TODO Make a route for any kata
         default:
             if (str_starts_with($url,'/katas')) {
                 require_once "./app$url.php";
